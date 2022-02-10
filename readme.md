@@ -47,31 +47,31 @@ ports:
 
 ## Run Docker Postgres Instance 🚀
 
-	Open a new terminal on **postgres** folder a run docker 
-	
-	```
-	docker-compose up
-	```
+Open a new terminal on **postgres** folder a run docker
 
-	After this you can connect the DB using a DB Manager like dbeaver
+```
+docker-compose up
+```
 
-	```
-	https://dbeaver.io
-	```
+After this you can connect the DB using a DB Manager like dbeaver
+
+```
+https://dbeaver.io
+```
 
 ## Run Postgres commands on Docker
 
-	In order to use postgres command like psql you have the following format:
+In order to use postgres command like psql you have the following format:
 
-	### Create DB
+### Create DB
 
-	```
-  	docker exec <container_name> psql -U <postgres_user> -c "CREATE DATABASE <db_name>;"
-  	```
+```
+docker exec <container_name> psql -U <postgres_user> -c "CREATE DATABASE <db_name>;"
+```
 
-  	### View Databases 
+### View Databases 
 
-  	```
-  	docker exec <container_name> psql -U <postgres_user> -l
-  	```
+```
+docker exec <container_name> psql -U <postgres_user> -l
+```
 
