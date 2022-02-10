@@ -3,7 +3,7 @@
 Compose and run a local docker postgreSQL DB instance where you can create new databases
 in order to develop on local.
 
-This project also has dump and restore instructions to easily create a insert data into a DB instance on docker on **dump_restore_postgres** folder.
+This project also has a dump and restore instructions to easily dump a db and also create a restore data into a DB instance on docker on **dump_restore_postgres** folder.
 
 ## Docker Compose Setting 📋
 
