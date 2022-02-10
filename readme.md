@@ -1,38 +1,77 @@
-# Título del Proyecto
+# Docker PostgreSQL DB instace
 
-_Acá va un párrafo que describa lo que es el proyecto_
+Compose and run a local docker postgreSQL DB instance where you can create new databases
+in order to develop on local.
 
-## Comenzando 🚀
+This project also has dump and restore instructions to easily create a insert data into a DB instance on docker on **dump_restore_postgres** folder.
 
-_Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
+## Docker Compose Setting 📋
 
-Mira **Deployment** para conocer como desplegar el proyecto.
-
-
-### Pre-requisitos 📋
-
-_Que cosas necesitas para instalar el software y como instalarlas_
+_Get into postgres folder_
 
 ```
-Da un ejemplo
+cd postgres
 ```
 
-### Instalación 🔧
+_There is a docker-compose file inside postgres **postgres/docker-compose.yml**_
+_Inside this file you can see all the configurations to run a docker postgres instance_
 
-_Una serie de ejemplos paso a paso que te dice lo que debes ejecutar para tener un entorno de desarrollo ejecutandose_
+### Importants Settings 
 
-_Dí cómo será ese paso_
-
-```
-Da un ejemplo
-```
-
-_Y repite_
+#### Docker Container Name 
 
 ```
-hasta finalizar
+container_name: postgres-docker-instance
 ```
 
-_Finaliza con un ejemplo de cómo obtener datos del sistema o como usarlos para una pequeña demo_
+#### Docker Enviroment parameters
 
-## Ejecutando las pruebas ⚙️
+```
+environment:
+- POSTGRES_DB=postgres
+- POSTGRES_USER=postgres
+- POSTGRES_PASSWORD={any_password}
+```
+
+#### Docker postgres ports
+
+_If you have a local instance of postgres running on local probably your port 5432 is used, in that case you can put another port as inside port meanwhile the extern port must be always 5432_
+
+inside:extern
+
+```
+ports:
+    - "5433:5432"
+```
+
+
+## Run Docker Postgres Instance 🚀
+
+	Open a new terminal on **postgres** folder a run docker 
+	
+	```
+	docker-compose up
+	```
+
+	After this you can connect the DB using a DB Manager like dbeaver
+
+	```
+	https://dbeaver.io
+	```
+
+## Run Postgres commands on Docker
+
+	In order to use postgres command like psql you have the following format:
+
+	### Create DB
+
+	```
+  	docker exec <container_name> psql -U <postgres_user> -c "CREATE DATABASE <db_name>;"
+  	```
+
+  	### View Databases 
+
+  	```
+  	docker exec <container_name> psql -U <postgres_user> -l
+  	```
+
